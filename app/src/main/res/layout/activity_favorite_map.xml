@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsFragment">
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapViewAc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:liteMode="false"
+        android:background="@drawable/main_background"
+
+        android:apiKey="AIzaSyBoN47BmMSh0P7Kt-YB9o9m1nlFelHwnCw"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/main_background"
+
+        android:clickable="true"
+        android:rotation="180"
+        android:src="@drawable/ic_baseline_save_alt_24"
+        android:visibility="invisible"
+        map:backgroundTint="@color/lavender"
+        map:fabCustomSize="60dp"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:rippleColor="#3775A6"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/third_background"
+        android:padding="18dp"
+        android:text="Choose your Favorite Location"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
