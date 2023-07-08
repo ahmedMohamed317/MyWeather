@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string name="app_name">MeinWetter</string>
+        <string name="open_nav">Öffnen</string>
+        <string name="close_nav">Schließen</string>
+        <string name="hello_blank_fragment">Hallo leeres Fragment</string>
+        <string name="home">Startseite</string>
+        <string name="favorite">Favorit</string>
+        <string name="alarm">Alarm</string>
+        <string name="settings">Einstellungen</string>
+        <string name="todo">Aufgaben</string>
+        <string name="sunrise">Sonnenaufgang</string>
+        <string name="sunset">Sonnenuntergang</string>
+        <string name="visibility">Sichtweite</string>
+        <string name="ultra_rays">Ultraviolette Strahlen</string>
+        <string name="cloud">Wolken</string>
+        <string name="raining">Regen</string>
+        <string name="wind">Wind</string>
+        <string name="_10rain">10rain</string>
+        <string name="_10cloud">10cloud</string>
+        <string name="_10uv">10uv</string>
+        <string name="_10vi">10vi</string>
+        <string name="_10atm">10atm</string>
+        <string name="_10wind">10wind</string>
+        <string name="_22">22</string>
+        <string name="_30">30</string>
+        <string name="c">°C</string>
+        <string name="_5_11">5:11</string>
+        <string name="german">Deutsch</string>
+        <string name="french">Französisch</string>
+        <string name="arabic">Arabisch</string>
+        <string name="language">Sprache</string>
+        <string name="english">Englisch</string>
+        <string name="choose_your_alert_location">Wählen Sie Ihren Alarmort</string>
+        <string name="set_alert">Alarm festlegen</string>
+        <string name="from">Von:</string>
+        <string name="to">Bis:</string>
+        <string name="save">Speichern</string>
+        <string name="notification">Benachrichtigung</string>
+        <string name="units_of_measurment">Maßeinheiten</string>
+        <string name="standard">Standard</string>
+        <string name="metric">Metrisch</string>
+        <string name="imperial">Imperial</string>
+        <string name="animation_view">Animationsansicht</string>
+        <string name="animated">Animiert</string>
+        <string name="non_animated">Nicht animiert</string>
+        <string name="choose_your_location">Wählen Sie Ihren Standort</string>
+        <string name="lon">Längengrad:</string>
+        <string name="lat">Breitengrad:</string>
+        <string name="pressure">Luftdruck</string>
+        <string name="humidity">Luftfeuchtigkeit</string>
+        <string name="daily_weather">Tägliches Wetter:</string>
+        <string name="hourly_weather">Stündliches Wetter:</string>
+        <string name="weather_alert">Wetterwarnung</string>
+        <string name="close">Schließen</string>
+        <string name="choose_your_favorite_location">Wählen Sie Ihren Lieblingsstandort</string>
+        <string name="weather_is_fine">Das Wetter ist schön</string>
+        <string name="warning">Warning!!</string>
+        <string name="warning_content_favorite">Sind Sie sicher, dass Sie Ihren Favoriten löschen möchten?</string>
+        <string name="warning_content_alert">Sind Sie sicher, dass Sie Ihren Favoriten löschen möchten?</string>
+        <string name="yes">Ja</string>
+        <string name="no">Nein</string>
+
+
+
+</resources>

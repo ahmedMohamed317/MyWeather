@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="20dp"
-                    android:text="Units of measurment"
+                    android:text="@string/units_of_measurment"
                     android:textSize="29sp"
                     android:textStyle="bold" />
 
@@ -91,19 +91,19 @@
                     android:id="@+id/standard_radio_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Standard" />
+                    android:text="@string/standard" />
 
                 <RadioButton
                     android:id="@+id/metric_radio_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Metric" />
+                    android:text="@string/metric" />
 
                 <RadioButton
                     android:id="@+id/imperial_radio_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Imperial" />
+                    android:text="@string/imperial" />
             </RadioGroup>
 
 
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="20dp"
-                    android:text="Animation view"
+                    android:text="@string/animation_view"
                     android:textSize="29sp"
                     android:textStyle="bold" />
 
@@ -130,13 +130,13 @@
                     android:id="@+id/animated_radio_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Animated" />
+                    android:text="@string/animated" />
 
                 <RadioButton
                     android:id="@+id/non_animated_radio_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Non Animated" />
+                    android:text="@string/non_animated" />
 
             </RadioGroup>
 

@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
@@ -13,17 +14,14 @@ import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
-import androidx.core.location.LocationManagerCompat.requestLocationUpdates
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.location.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
@@ -35,21 +33,46 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     lateinit var longText: String
     lateinit var latText: String
     lateinit var mLastLocation: Location
+    var isChoiceGps :Boolean = true
+    var isFirstTime :Boolean = true
     var isFirstTimeGps :Boolean = true
+    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         toolbar = findViewById(R.id.toolbar)
+        sharedPreferences = applicationContext?.getSharedPreferences("FirstTimeChoice", Context.MODE_PRIVATE)!!
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.nav_view)
+        editor = sharedPreferences.edit()
         navigationView.setNavigationItemSelectedListener(this)
         toggle = ActionBarDrawerToggle(this , drawerLayout,toolbar,R.string.open_nav,R.string.close_nav)
         drawerLayout.addDrawerListener(toggle)
         mFusedClient = LocationServices.getFusedLocationProviderClient(this)
+        isFirstTime = sharedPreferences.getBoolean("isFirstTime",true)
+        isChoiceGps = sharedPreferences.getBoolean("isChoiceGps",true)
+        if (isFirstTime) {
 
-        showLocationMethodDialog()
+            showLocationMethodDialog()
+        }
+        else{
+
+            if (isChoiceGps == false ) {
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.fragment_container,
+                    MapsFragment()
+                ).commit()
+            }
+            else{
+                getLastLocation()
+
+            }
+        }
 //        toggle.syncState()
 //        if (savedInstanceState == null)
 //        {
@@ -68,7 +91,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             val bundle = Bundle()
             bundle.putString("latitude", longText)
             bundle.putString("longitude", latText)
-            if (isFirstTimeGps == true ) {
+            if (isFirstTimeGps) {
                 homeFragment.arguments = bundle
                 supportFragmentManager.beginTransaction().replace(
                     R.id.fragment_container,
@@ -76,6 +99,8 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 ).commit()
                 isFirstTimeGps = false
             }
+
+
 
 
 
@@ -142,6 +167,22 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
 
     }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 20) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with getting the last location
+                getLastLocation()
+            } else {
+                // Permission denied, show a message or handle it accordingly
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     private fun isLocatedEnabled(): Boolean {
 
@@ -157,7 +198,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             R.id.nav_home -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,HomeFragment()).commit()
             R.id.nav_settings -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,SettingsFragment()).commit()
             R.id.nav_fav -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,FavoriteFragment()).commit()
-            R.id.nav_alarm -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,AlarmFragment()).commit()
+            R.id.nav_alarm -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,AlertFragment()).commit()
 
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -177,6 +218,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         builder.setMessage("How do you want to get your location?")
         builder.setPositiveButton("GPS") { dialog, which ->
         getLastLocation()
+            editor.putBoolean("isFirstTime",false )
+            editor.putBoolean("isChoiceGps",true )
+            editor.apply()
 
         }
         builder.setNegativeButton("Map") { dialog, which ->
@@ -184,6 +228,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 R.id.fragment_container,
                 MapsFragment()
             ).commit()
+            editor.putBoolean("isFirstTime",false )
+            editor.putBoolean("isChoiceGps",false )
+            editor.apply()
         }
         val dialog = builder.create()
         dialog.show()

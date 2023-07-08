@@ -13,6 +13,7 @@ data class  WeatherResponse(
     @PrimaryKey @ColumnInfo(name = "id") var id: String = UUID.randomUUID().toString(),
     val lat: Double,
     val lon: Double,
+    val alerts: List<Alert>?,
     val timezone: String,
     val timezone_offset: Int,
     val current: CurrentWeather,

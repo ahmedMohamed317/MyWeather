@@ -17,12 +17,14 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.*
 
 class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.OnMapClickListener{
+
 
     private lateinit var mapView: MapView
     private var googleMap: GoogleMap? = null
@@ -34,18 +36,21 @@ class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
-        setContentView(R.layout.activity_favorite_map)
-        floatingActionButton = findViewById(R.id.floatingActionButtonSave)
-        mapView =findViewById(R.id.mapViewAc)
+        setContentView(R.layout.activity_alert_map)
+        floatingActionButton = findViewById(R.id.floatingActionButtonSaveAlert)
+        mapView =findViewById(R.id.mapViewAcAlert)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
         floatingActionButton.setOnClickListener {
 
-            lifecycleScope.launch(IO){
+            lifecycleScope.launch(Dispatchers.IO){
                 getAndSaveData()
+                finish()
+//                var weatherResponse:WeatherResponse?= ApiClient().getWeather(latitude,longitude,"metric","en").body()
+//                if (weatherResponse != null) {
+//                    ConcreteLocalSource.getInstance(applicationContext).insertIntoFav(weatherResponse)
+//                    finish()
+//                }
             }
         }
     }
@@ -56,8 +61,8 @@ class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.
     }
 
     override fun onMapClick(latLng: LatLng) {
-        if(floatingActionButton?.isVisible == false)
-            floatingActionButton?.visibility = View.VISIBLE
+        if(floatingActionButton.isVisible == false)
+            floatingActionButton.visibility = View.VISIBLE
         latitude = latLng.latitude.toString()
         longitude = latLng.longitude.toString()
         Log.d("lat",longitude.toString())
@@ -100,37 +105,37 @@ class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.
 
 
 //
-//            ApiClient().getWeather(latitude,longitude,"metric","en")
-//        viewModelHome.getAndEmitData(latitude,longitude,"metric","en")
-        Log.d("inside getandsavedata", "Dataemitted}")
+            ApiClient().getWeather(latitude,longitude,"metric","en")
+        viewModelHome.getAndEmitData(latitude,longitude,"metric","en")
+            Log.d("inside getandsavedata", "Dataemitted}")
 
-        viewModelHome.weatherResponseFlow.collectLatest { status ->
+            viewModelHome.weatherResponseFlow.collectLatest { status ->
 
-            Log.d("insideflow", "onView: ${status.javaClass}")
-            when (status) {
-                is ApiState.Loading -> {
-                    Log.d("insideLoading", "onView: ${status.javaClass}")
+                Log.d("insideflow", "onView: ${status.javaClass}")
+                when (status) {
+                    is ApiState.Loading -> {
+                        Log.d("insideLoading", "onView: ${status.javaClass}")
 
-                }
-                is ApiState.Success -> {
-                    var id =  UUID.randomUUID()
-                     status.weatherResponse?.let {
-                        val weatherResponse = it.copy(minutely = it.minutely ?: emptyList(),id = it.id ?: id.toString())
-                        Log.d("before insert", weatherResponse.id)
-                        ConcreteLocalSource.getInstance(applicationContext).insertIntoFav(weatherResponse)
-                        Log.d("after insert", "status: Success")
-                    } ?: run {
-                        Log.d(ContentValues.TAG, "status: Fail")
                     }
+                    is ApiState.Success -> {
+                        var id =  UUID.randomUUID()
+                        status.weatherResponse?.let {
+                            val weatherResponse = it.copy(minutely = it.minutely ?: emptyList(),id = it.id ?: id.toString())
+                            Log.d("before insert", weatherResponse.id)
+                            ConcreteLocalSource.getInstance(applicationContext).insertIntoFav(weatherResponse)
+                            Log.d("after insert", "status: Success")
+                        } ?: run {
+                            Log.d(ContentValues.TAG, "status: Fail")
+                        }
 
 
-                }
-                else -> {
-                    Log.d("insideElse", "onView: ${status.javaClass}")
+                    }
+                    else -> {
+                        Log.d("insideElse", "onView: ${status.javaClass}")
 
+                    }
                 }
             }
-        }
 
 
 
@@ -138,7 +143,7 @@ class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.
 
 
         }
-            catch (e:Exception){
+        catch (e:Exception){
             Log.d("inside catch gasd", e.message.toString())
 
         }
@@ -146,5 +151,6 @@ class FavoriteMapActivity : AppCompatActivity() , OnMapReadyCallback, GoogleMap.
 
 
     }
+
 
 }

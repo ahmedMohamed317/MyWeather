@@ -4,5 +4,5 @@ import retrofit2.Response
 
 interface RemoteSource {
 
-    suspend fun getWeather(lat: String, lon: String , units : String , lang:String): WeatherResponse?
+    suspend fun getWeather(lat: String, lon: String , units : String , lang:String): Response<WeatherResponse>
 }

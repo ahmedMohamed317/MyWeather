@@ -11,7 +11,7 @@ class FavoriteViewModel(private val iRepo: RepoInterface) : ViewModel() {
     var favWeatherFlow : MutableStateFlow<FavApiState> = MutableStateFlow(FavApiState.Loading)
 
     init {
-        getSavedProducts()
+        getFavWeather()
     }
 
 
@@ -32,7 +32,7 @@ class FavoriteViewModel(private val iRepo: RepoInterface) : ViewModel() {
         }
     }
 
-    private fun getSavedProducts()  {
+    private fun getFavWeather()  {
         viewModelScope.launch {
 
 

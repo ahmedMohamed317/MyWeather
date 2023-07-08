@@ -40,18 +40,38 @@ class HomeFragment : Fragment() {
     private lateinit var latitude :String
     private lateinit var longitude :String
     var remoteSource : RemoteSource = ApiClient()
+    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-          latitude = arguments?.getString("latitude").toString()
-          longitude = arguments?.getString("longitude").toString()
-        latitude = "22"
-        longitude = "11"
+        latitude = arguments?.getString("latitude").toString()?: ""
+        longitude = arguments?.getString("longitude").toString()?: ""
+        sharedPreferences = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)!!
+        editor = sharedPreferences.edit()
+        Log.d("on oncreate home",latitude)
+        if(latitude!=""&&latitude!="null"){
+            editor.putString("latitude",latitude )
+            editor.putString("longitude",longitude )
+            editor.apply()
+            Log.d("on sharedprf if home",latitude)
+
+        }
+        else{
+            latitude=sharedPreferences.getString("latitude", "0").toString()
+            longitude=sharedPreferences.getString("longitude", "0").toString()
+            Log.d("on sharedprf else home",latitude)
+
+
+        }
         Log.d("on oncreate",language)
         Log.d("on oncreate home",longitude)
 
 
+
     }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -65,10 +85,10 @@ class HomeFragment : Fragment() {
         hourlyAdapter = HourlyAdapter(requireContext())
         binding.recyclerViewHours.adapter = hourlyAdapter
         binding.recyclerViewDays.adapter = dailyAdapter
-         val sharedPreferences: SharedPreferences? = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-        language = sharedPreferences?.getString("language", "en").toString()
-        unit = sharedPreferences?.getString("units", "metric").toString()
+
+        language = sharedPreferences.getString("language", "en").toString()
+        unit = sharedPreferences.getString("units", "metric").toString()
         Log.d("on oncreateview",language)
         Log.d("on oncreateview",unit)
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -36,8 +37,7 @@ class FavroiteAdapter(var context: Context , var listener : OnDeleteFavoriteInte
         holder.binding.countryName.text =  getAddressFromLatLng(favItem.lat,favItem.lon).country
         holder.binding.removeBtn.setOnClickListener {
             try {
-                listener.onFavoriteDelete(favItem)
-                this.notifyDataSetChanged()
+                showAreYouSureDialogDeletion(favItem)
 
             }
             catch (e:Exception){
@@ -91,4 +91,20 @@ class FavroiteAdapter(var context: Context , var listener : OnDeleteFavoriteInte
     }
 
     data class CountryName(var country : String,var city:String)
+
+    private fun showAreYouSureDialogDeletion(favItem:WeatherResponse) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(context.getString(R.string.warning))
+        builder.setMessage(context.getString(R.string.warning_content_favorite))
+        builder.setPositiveButton(context.getString(R.string.yes)) { dialog, which ->
+
+            listener.onFavoriteDelete(favItem)
+            this.notifyDataSetChanged()
+        }
+        builder.setNegativeButton(context.getString(R.string.no)) { dialog, which ->
+           dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
 }

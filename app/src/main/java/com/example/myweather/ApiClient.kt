@@ -16,7 +16,7 @@ class  ApiClient : RemoteSource {
 //            .create(ApiService::class.java)
 //    }
 
-     override suspend fun getWeather(lat: String, lon: String , units : String , lang:String): WeatherResponse? {
+     override suspend fun getWeather(lat: String, lon: String , units : String , lang:String): Response<WeatherResponse> {
              Log.d("ApiClient", "before getweather method"+units+lang)
 
             val response = Retrofit.Builder()
@@ -33,7 +33,7 @@ class  ApiClient : RemoteSource {
              response.body().let { Log.d("ApiClient", it?.timezone ?: "it's null") }
              Log.d("ApiClient", response.body()!!.lat.toString())
              Log.d("ApiClient", response.body()!!.timezone_offset.toString())
-             return response.body()
+             return response
 
 
 

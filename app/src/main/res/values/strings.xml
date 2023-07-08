@@ -1,8 +1,8 @@
 <resources>
+
     <string name="app_name">MyWeather</string>
     <string name="open_nav">Open</string>
     <string name="close_nav">Close</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
@@ -31,6 +31,40 @@
     <string name="arabic">Arabic</string>
     <string name="language">Language</string>
     <string name="english">English</string>
+    <string name="choose_your_alert_location">Choose your Alert Location</string>
+    <string name="set_alert">Set Alert</string>
+    <string name="from">From :</string>
+    <string name="to">To :</string>
+    <string name="save">Save</string>
+    <string name="notification">Notification</string>
+    <string name="units_of_measurment">Units of measurment</string>
+    <string name="standard">Standard</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+    <string name="animation_view">Animation view</string>
+    <string name="animated">Animated</string>
+    <string name="non_animated">Non Animated</string>
+    <string name="choose_your_location">Choose your Location</string>
+    <string name="lon">Lon :</string>
+    <string name="lat">Lat :</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="daily_weather">Daily Weather :</string>
+    <string name="hourly_weather">Hourly Weather :</string>
+    <string name="weather_alert">Weather Alert</string>
+    <string name="close">Close</string>
+    <string name="choose_your_favorite_location">Choose your Favorite Location</string>
+    <string name="weather_is_fine">Weather is fine</string>
+    <string name="warning">Warning!!</string>
+    <string name="warning_content_favorite">Are you sure you want to delete your favourite item?</string>
+    <string name="warning_content_alert">Are you sure you want to delete your Alert ?
+    This will cause to disable your Alarm</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
+
+
 
 
 </resources>

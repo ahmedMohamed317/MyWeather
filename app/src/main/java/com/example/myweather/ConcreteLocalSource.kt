@@ -20,7 +20,6 @@ class ConcreteLocalSource private constructor(context: Context):LocalSource{
 
     override suspend fun deleteFromFav(weatherResponse: WeatherResponse) {
         try {
-            // Use a different coroutine scope for the database operation
 
             withContext(Dispatchers.IO) {
                 weatherDAO.removeFromFav(weatherResponse)
@@ -30,6 +29,55 @@ class ConcreteLocalSource private constructor(context: Context):LocalSource{
             Log.d("the remove ls catch", e.message.toString())
         }
     }
+
+    override suspend fun insertIntoAlert(alertPojo: AlertPojo) {
+
+        try {
+
+            withContext(Dispatchers.IO) {
+                weatherDAO.insertIntoAlert(alertPojo)
+            }
+
+        } catch (e: Exception) {
+            Log.d("the inseralert ln catch", e.message.toString())
+        }
+    }
+
+    override suspend fun removeFromAlerts(alertPojo: AlertPojo) {
+        try {
+
+            withContext(Dispatchers.IO) {
+                weatherDAO.removeFromAlerts(alertPojo)
+            }
+
+        } catch (e: Exception) {
+            Log.d("the remove ls catch", e.message.toString())
+        }
+
+    }
+
+    override fun getAlerts(): Flow<List<AlertPojo>> {
+        try {
+            Log.d("the getAlertLS", "before method")
+
+            return weatherDAO.getAlerts()
+        }
+        catch (e : Exception){
+            Log.d("the getAlertsCatchLs", e.message.toString())
+
+        }
+        return weatherDAO.getAlerts()
+
+    }
+
+    override fun getAlertWithId(entryId: String): AlertPojo {
+        return weatherDAO.getAlertWithId(entryId)
+    }
+
+    override fun updateAlertItemLatLongById(entryId: String, lat: Double, lon: Double) {
+        weatherDAO.updateAlertItemLatLongById(entryId, lat, lon)
+    }
+
 
     companion object {
         private  var instance: ConcreteLocalSource?=null
