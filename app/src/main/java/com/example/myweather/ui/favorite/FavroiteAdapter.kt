@@ -3,6 +3,7 @@ package com.example.myweather.ui.favorite
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.location.Geocoder
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,9 @@ import java.util.*
 class FavroiteAdapter(var context: Context , var listener : OnDeleteFavoriteInterface) : ListAdapter<WeatherResponse, FavroiteAdapter.ViewHolder>(
     DiffUtils
 ) {
+    var sharedPreferences: SharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)!!
+    var language = sharedPreferences.getString("language", "en").toString()
+
     class ViewHolder(val binding: FavoriteItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -64,11 +68,14 @@ class FavroiteAdapter(var context: Context , var listener : OnDeleteFavoriteInte
     }
 
     fun getAddressFromLatLng(latitude: Double, longitude: Double): CountryName {
-        val geocoder = Geocoder(context, Locale.getDefault())
+        var geocoder = Geocoder(context, Locale.getDefault())
+        if(language.equals("ar")) {
+            geocoder = Geocoder(context, Locale("ar")) // Specify Arabic locale
+        }
         var country: String = ""
-        var city: String? = ""
-        var city2: String? = ""
-        var city3: String? = ""
+        var city: String = ""
+        var city2: String = ""
+        var city3: String = ""
 
 
         try {
@@ -78,29 +85,35 @@ class FavroiteAdapter(var context: Context , var listener : OnDeleteFavoriteInte
                 if (addresses.isNotEmpty()) {
                     val address = addresses[0]
                     country = address.countryName
+                if (address.adminArea.isNotBlank()) {
+                    return CountryName(country,address.adminArea)
+                }
+                else if (address.locality.isNotBlank()) {
+                        return CountryName(country,address.locality)
+                }
+                else if (address.subLocality.isNotBlank()) {
+                        return CountryName(country,address.subLocality)
+                }
 
-                    city = if(address.adminArea.isBlank()){
-                        ""
-                    } else{
-                        address.adminArea.plus(" , ")
-
-                    }
-                    city2 = if(address.locality.isBlank()){
-                        ""
-                    } else{
-                        address.locality.plus("  ")
-
-                    }
-
-
-
+//                    if (city2 != null) {
+//                        if (city2.isNotBlank())
+//                            return CountryName(country,city2)
+//                        else if (city != null) {
+//                            if(city.isNotBlank())
+//                                return CountryName(country,city)
+//                            else
+//                                return CountryName(country,country)
+//                        }
+//                    }
                 }
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
-        return CountryName(country,city+" "+city2)
+
+
+        return CountryName(country,country)
 
     }
 

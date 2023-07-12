@@ -70,7 +70,7 @@ CoroutineWorker(appContext, workerParams)
                             }
                             when (alertEntity.kind) {
                                 AlertKind.ALARM -> createAlarm(applicationContext, alertsEvent)
-                                AlertKind.NOTIFICATION -> sendNotification(applicationContext, alertsEvent)
+                                AlertKind.NOTIFICATION -> makeNotification(applicationContext, alertsEvent)
                             }
                         } else {
                             getAddress(
@@ -87,7 +87,7 @@ CoroutineWorker(appContext, workerParams)
 
 
                                     }
-                                    AlertKind.NOTIFICATION -> sendNotification(
+                                    AlertKind.NOTIFICATION -> makeNotification(
                                         applicationContext,
                                         applicationContext.getString(R.string.weather_is_fine)
                                         )
@@ -97,7 +97,7 @@ CoroutineWorker(appContext, workerParams)
                             }
 
                         }
-                        removeFromDataBaseAndDismiss(repo, alertEntity, applicationContext)
+                        removeAlertAndCancel(repo, alertEntity, applicationContext)
                         Result.success()
                     } else {
                         Result.retry()
@@ -148,7 +148,7 @@ CoroutineWorker(appContext, workerParams)
         }
     }
 
-    private suspend fun removeFromDataBaseAndDismiss(
+    private suspend fun removeAlertAndCancel(
         repo: Repo,
         alertPojo: AlertPojo,
         appContext: Context
@@ -156,7 +156,7 @@ CoroutineWorker(appContext, workerParams)
 
         val _Day_TIME_IN_MILLISECOND = 24*60*60*1000L
         val now = Calendar.getInstance().timeInMillis
-        if((alertPojo.end -  now)  < _Day_TIME_IN_MILLISECOND){ // condition that the time of alarm ended
+        if((alertPojo.end -  now)  < _Day_TIME_IN_MILLISECOND){
             WorkManager.getInstance(appContext).cancelAllWorkByTag(alertPojo.id)
             repo.removeFromAlerts(alertPojo)
         }

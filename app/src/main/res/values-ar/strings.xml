@@ -80,6 +80,10 @@
     <string name="detail">التفاصيل</string>
     <string name="wind_speed_amp_cloundness">سرعة الرياح و الغيوم</string>
     <string name="description">الوصف</string>
+    <string name="weather_notification">اشعار الطقس</string>
+    <string name="warning_alert_draw">عفوا , لا نستطيع المتابعة بدون اعطاء الاذن المطلوب</string>
+    <string name="favorite_toast">من فضلك قم بالاتصال بالانترنت لاستخدام هذه الميزة !!</string>
+    <string name="home_toast">من فضلك قم بالاتصال بالانترنت لتحديث البيانات !!</string>
 
 
 

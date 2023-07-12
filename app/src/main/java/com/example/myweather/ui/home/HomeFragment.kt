@@ -8,19 +8,19 @@ import android.location.Geocoder
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.bumptech.glide.Glide
 import com.example.myweather.R
-import com.example.myweather.database.Repo
 import com.example.myweather.apistates.ApiState
 import com.example.myweather.database.ConcreteLocalSource
+import com.example.myweather.database.Repo
 import com.example.myweather.databinding.FragmentHomeBinding
 import com.example.myweather.model.WeatherResponse
 import com.example.myweather.network.ApiClient
@@ -36,6 +36,7 @@ import kotlinx.coroutines.launch
 import java.time.*
 import java.time.format.DateTimeFormatter
 import java.util.*
+
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -181,11 +182,13 @@ class HomeFragment : Fragment() {
                 onSuccessState()
                 launch(Dispatchers.IO) {
                      weatherPojo = localSource.getFavWithId("noInternetId")
+                    dailyAdapter.submitList(weatherPojo!!.daily)
+                    hourlyAdapter.submitList(weatherPojo!!.hourly)
                     Log.d("weatherpojo", weatherPojo!!.lon.toString())
                 }.join()
                 launch ( Dispatchers.Main ){
                 weatherPojo?.let { setDataToViews(it) }
-                    Toast.makeText(requireContext(),"Please Connect to internet for latest update !!",Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),requireContext().getString(R.string.home_toast),Toast.LENGTH_LONG).show()
                 }
                 }
 
@@ -284,7 +287,11 @@ class HomeFragment : Fragment() {
     }
 
     fun getAddressFromLatLng(latitude: Double, longitude: Double): String {
-        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+        var geocoder = Geocoder(requireContext(), Locale.getDefault())
+        if(language.equals("ar")) {
+             geocoder = Geocoder(requireContext(), Locale("ar")) // Specify Arabic locale
+        }
+
         var country: String? = null
         var city: String? = ""
         var city2: String? = ""
@@ -329,7 +336,10 @@ class HomeFragment : Fragment() {
 
 
     fun getCountryFromLatLng(latitude: Double, longitude: Double): String? {
-        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+        var geocoder = Geocoder(requireContext(), Locale.getDefault())
+        if(language.equals("ar")) {
+            geocoder = Geocoder(requireContext(), Locale("ar")) // Specify Arabic locale
+        }
         var country: String? = null
         var city: String? = ""
         var city2: String? = ""

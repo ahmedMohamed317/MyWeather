@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myweather.R
 import com.example.myweather.database.Repo
 import com.example.myweather.apistates.FavApiState
 import com.example.myweather.database.ConcreteLocalSource
@@ -60,7 +61,7 @@ class FavoriteFragment : Fragment(), OnDeleteFavoriteInterface {
             }
             else{
 
-                Toast.makeText(requireContext(),"Please Connect to internet for using this feature !!",
+                Toast.makeText(requireContext(),requireContext().getString(R.string.favorite_toast),
                     Toast.LENGTH_LONG).show()
 
             }

@@ -135,7 +135,10 @@ class FavoriteDetailsActivity : AppCompatActivity() {
         return formatter.format(time)
     }
     fun getAddressFromLatLng(latitude: Double, longitude: Double): String {
-        val geocoder = Geocoder(applicationContext, Locale.getDefault())
+        var geocoder = Geocoder(applicationContext, Locale.getDefault())
+        if(sharedPreferences.getString("language", "en").toString().equals("ar")) {
+            geocoder = Geocoder(applicationContext, Locale("ar")) // Specify Arabic locale
+        }
         var country: String? = null
         var city: String? = ""
         var city2: String? = ""
@@ -180,7 +183,10 @@ class FavoriteDetailsActivity : AppCompatActivity() {
 
 
     fun getCountryFromLatLng(latitude: Double, longitude: Double): String? {
-        val geocoder = Geocoder(applicationContext, Locale.getDefault())
+        var geocoder = Geocoder(applicationContext, Locale.getDefault())
+        if(sharedPreferences.getString("language", "en").toString().equals("ar")) {
+            geocoder = Geocoder(applicationContext, Locale("ar")) // Specify Arabic locale
+        }
         var country: String? = null
         var city: String? = ""
         var city2: String? = ""

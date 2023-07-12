@@ -216,7 +216,7 @@ class AlertFragment : Fragment() , OnDeleteAlertItem {
             } else {
                 AlertDialog.Builder(requireActivity()).setTitle("Warning")
                     .setCancelable(false).setMessage(
-                        "Sorry , We can't proceed your request as you Draw Over Apps Permission is not granted")
+                        requireContext().getString(R.string.warning_alert_draw))
                     .setPositiveButton(android.R.string.ok) { _, _ -> }.show()
             }
         } else {

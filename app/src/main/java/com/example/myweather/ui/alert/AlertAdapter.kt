@@ -34,10 +34,10 @@ class AlertAdapter(var context: Context,var listener: OnDeleteAlertItem) : ListA
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val alertItem = getItem(position)
-        holder.binding.startDate.text = getFormattedDateWithoutYear(alertItem.start/1000)
-        holder.binding.endDate.text = getFormattedDateWithoutYear(alertItem.end/1000)
-        holder.binding.startHour.text = getFormattedTime(alertItem.start/1000)
-        holder.binding.endHour.text = getFormattedTime(alertItem.end/1000)
+        holder.binding.endDate.text = getFormattedDateWithoutYear(alertItem.start/1000)
+        holder.binding.startDate.text = getFormattedDateWithoutYear(alertItem.end/1000)
+        holder.binding.endHour.text = getFormattedTime(alertItem.start/1000)
+        holder.binding.startHour.text = getFormattedTime(alertItem.end/1000)
         Log.d("timestamp start" , alertItem.start.toString())
         Log.d("timestamp end" , alertItem.end.toString())
 

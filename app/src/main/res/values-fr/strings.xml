@@ -62,22 +62,26 @@
         <string name="yes">Oui</string>
         <string name="no">Nein</string>
         <string name="units_of_tempreture">Unités de température</string>
-        <string name="apply">Apply</string>
-        <string name="today">Today</string>
-        <string name="tomorrow">Tomorrow</string>
-        <string name="now">    Now    </string>
-        <string name="avg">Avg :</string>
-        <string name="least">Least :</string>
+        <string name="apply">Appliquer</string>
+        <string name="today">Aujourd\'hui</string>
+        <string name="tomorrow">Demain</string>
+        <string name="now">Maintenant</string>
+        <string name="avg">Moy. :</string>
+        <string name="least">Moins :</string>
         <string name="top">Top :</string>
-        <string name="search_by_city_name">Search By City Name</string>
-        <string name="search">Search</string>
-        <string name="start">Start :</string>
-        <string name="end">End :</string>
-        <string name="country">Country :</string>
-        <string name="city">City :</string>
-        <string name="detail">Detail</string>
-        <string name="wind_speed_amp_cloundness"><![CDATA[Wind speed & Cloundness]]></string>
+        <string name="search_by_city_name">Rechercher par nom de ville</string>
+        <string name="search">Rechercher</string>
+        <string name="start">Début :</string>
+        <string name="end">Fin :</string>
+        <string name="country">Pays :</string>
+        <string name="city">Ville :</string>
+        <string name="detail">Détail</string>
+        <string name="wind_speed_amp_cloundness">Vitesse du vent et Nébulosité</string>
         <string name="description">Description</string>
+        <string name="weather_notification">Notification météo</string>
+        <string name="warning_alert_draw">Désolé, nous ne pouvons pas traiter votre demande car vous n\'avez pas accordé l\'autorisation de superposition des applications</string>
+        <string name="favorite_toast">Veuillez vous connecter à Internet pour utiliser cette fonctionnalité !</string>
+        <string name="home_toast">Veuillez vous connecter à Internet pour les dernières mises à jour !</string>
 
 
 

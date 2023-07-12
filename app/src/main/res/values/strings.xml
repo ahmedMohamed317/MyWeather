@@ -78,6 +78,12 @@
     <string name="detail">Detail</string>
     <string name="wind_speed_amp_cloundness"><![CDATA[Wind speed & Cloundness]]></string>
     <string name="description">Description</string>
+    <string name="weather_notification">Weather notification</string>
+    <string name="warning_alert_draw">Sorry , We can\'t proceed your request as you Draw Over Apps Permission is not granted</string>
+    <string name="favorite_toast">Please Connect to internet for using this feature !!</string>
+    <string name="home_toast">Please Connect to internet for latest update !!</string>
+
+
 
 
 </resources>

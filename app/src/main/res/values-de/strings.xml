@@ -62,22 +62,27 @@
         <string name="warning_content_alert">Sind Sie sicher, dass Sie Ihren Favoriten löschen möchten?</string>
         <string name="yes">Ja</string>
         <string name="no">Nein</string>
-        <string name="apply">Apply</string>
-        <string name="today">Today</string>
-        <string name="tomorrow">Tomorrow</string>
-        <string name="now">    Now    </string>
-        <string name="avg">Avg :</string>
-        <string name="least">Least :</string>
+        <string name="apply">Anwenden</string>
+        <string name="today">Heute</string>
+        <string name="tomorrow">Morgen</string>
+        <string name="now">Jetzt</string>
+        <string name="avg">Durchschn.:</string>
+        <string name="least">Min. :</string>
         <string name="top">Top :</string>
-        <string name="search_by_city_name">Search By City Name</string>
-        <string name="search">Search</string>
+        <string name="search_by_city_name">Suche nach Stadtnamen</string>
+        <string name="search">Suchen</string>
         <string name="start">Start :</string>
-        <string name="end">End :</string>
-        <string name="country">Country :</string>
-        <string name="city">City :</string>
+        <string name="end">Ende :</string>
+        <string name="country">Land :</string>
+        <string name="city">Stadt :</string>
         <string name="detail">Detail</string>
-        <string name="wind_speed_amp_cloundness"><![CDATA[Wind speed & Cloundness]]></string>
-        <string name="description">Description</string>
+        <string name="wind_speed_amp_cloundness">Windgeschwindigkeit &amp; Bewölkung</string>
+        <string name="description">Beschreibung</string>
+        <string name="weather_notification">Wetterbenachrichtigung</string>
+        <string name="warning_alert_draw">Entschuldigung, wir können Ihre Anfrage nicht bearbeiten, da Ihnen die Berechtigung zum Überlagern von Apps nicht erteilt wurde</string>
+        <string name="favorite_toast">Bitte stellen Sie eine Verbindung zum Internet her, um diese Funktion zu nutzen!</string>
+        <string name="home_toast">Bitte stellen Sie eine Verbindung zum Internet her, um die neuesten Updates zu erhalten!</string>
+
 
 
 
