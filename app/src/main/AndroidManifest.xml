@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
     <application
@@ -23,14 +24,33 @@
         android:theme="@style/Theme.MyWeather"
         tools:targetApi="31">
         <activity
-            android:name=".AlertMapActivity"
+            android:name=".BeginingScreen"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.favorite.FavoriteDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FavoriteMapActivity"
+            android:name=".ui.alert.AlertMapActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.favorite.FavoriteMapActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -40,16 +60,18 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBoN47BmMSh0P7Kt-YB9o9m1nlFelHwnCw" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MyWeather">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.search.SearchFragment">
+
+
+    <LinearLayout
+        android:id="@+id/searchlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".searchByMeal.view.SearchByMealFragment">
+
+        <EditText
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/search_view_rounded"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:hint="@string/search_by_city_name"
+            android:padding="12dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="10"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:orientation="horizontal">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

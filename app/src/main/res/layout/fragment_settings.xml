@@ -5,145 +5,191 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".SettingsFragment" >
+    tools:context=".ui.settings.SettingsFragment" >
 
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        app:cardBackgroundColor="#DED4F3"
-        app:cardCornerRadius="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <RadioGroup
-                android:id="@+id/lang_rg"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#DED4F3"
+                app:cardCornerRadius="28dp">
 
-                android:padding="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/textView5"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="@string/language"
-                    android:textSize="29sp"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent">
 
-                <RadioButton
-                    android:id="@+id/arabic_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/arabic" />
+                    <RadioGroup
+                        android:id="@+id/measurment_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/animation_radioGroup">
 
-                <RadioButton
-                    android:id="@+id/english_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/english" />
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="20dp"
+                            android:text="@string/units_of_measurment"
+                            android:textSize="29sp"
+                            android:textStyle="bold" />
 
-                <RadioButton
-                    android:id="@+id/french_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/french" />
+                        <RadioButton
+                            android:id="@+id/meterPerSecond_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Km/Hr" />
 
-                <RadioButton
-                    android:id="@+id/german_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/german" />
-            </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/kmPerHour_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="M/S" />
 
-            <RadioGroup
-                android:id="@+id/Units_radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lang_rg">
+                    </RadioGroup>
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="@string/units_of_measurment"
-                    android:textSize="29sp"
-                    android:textStyle="bold" />
+                    <RadioGroup
+                        android:id="@+id/lang_rg"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
 
-                <RadioButton
-                    android:id="@+id/standard_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/standard" />
+                        android:padding="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <RadioButton
-                    android:id="@+id/metric_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/metric" />
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="20dp"
+                            android:text="@string/language"
+                            android:textSize="29sp"
+                            android:textStyle="bold" />
 
-                <RadioButton
-                    android:id="@+id/imperial_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/imperial" />
-            </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/arabic_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/arabic" />
+
+                        <RadioButton
+                            android:id="@+id/english_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/english" />
+
+                        <RadioButton
+                            android:id="@+id/french_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/french" />
+
+                        <RadioButton
+                            android:id="@+id/german_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/german" />
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/Units_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lang_rg">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="20dp"
+                            android:text="@string/units_of_measurment"
+                            android:textSize="29sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/standard_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/standard" />
+
+                        <RadioButton
+                            android:id="@+id/metric_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/metric" />
+
+                        <RadioButton
+                            android:id="@+id/imperial_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/imperial" />
+                    </RadioGroup>
+
+
+                    <RadioGroup
+                        android:id="@+id/animation_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Units_radioGroup">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="20dp"
+                            android:text="@string/animation_view"
+                            android:textSize="29sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/animated_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/animated" />
+
+                        <RadioButton
+                            android:id="@+id/non_animated_radio_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/non_animated" />
+
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apply"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/measurment_radioGroup"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-            <RadioGroup
-                android:id="@+id/animation_radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Units_radioGroup">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:text="@string/animation_view"
-                    android:textSize="29sp"
-                    android:textStyle="bold" />
-
-                <RadioButton
-                    android:id="@+id/animated_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/animated" />
-
-                <RadioButton
-                    android:id="@+id/non_animated_radio_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/non_animated" />
-
-            </RadioGroup>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

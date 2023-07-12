@@ -33,19 +33,19 @@
     <string name="arabic">العربية</string>
     <string name="language">اللغة</string>
     <string name="english">الإنجليزية</string>
-    <string name="choose_your_alert_location">اختر موقع التنبيه</string>
+    <string name="choose_your_alert_location">اختر موقعك المفضل</string>
     <string name="set_alert">تحديد التنبيه</string>
     <string name="from">من:</string>
     <string name="to">إلى:</string>
     <string name="save">حفظ</string>
     <string name="notification">إشعار</string>
     <string name="units_of_measurment">وحدات القياس</string>
-    <string name="standard">قياسي</string>
-    <string name="metric">متري</string>
-    <string name="imperial">إمبراطوري</string>
-    <string name="animation_view">عرض متحرك</string>
-    <string name="animated">متحرك</string>
-    <string name="non_animated">غير متحرك</string>
+    <string name="standard">فهرنهايت</string>
+    <string name="metric">سيليزيوس</string>
+    <string name="imperial">كيلفن</string>
+    <string name="animation_view">تحديد الموقع</string>
+    <string name="animated">قمر اصطناعى</string>
+    <string name="non_animated">خريطة</string>
     <string name="choose_your_location">اختر موقعك</string>
     <string name="lon">خط الطول:</string>
     <string name="lat">خط العرض:</string>
@@ -55,7 +55,7 @@
     <string name="hourly_weather">حالة الطقس الساعية:</string>
     <string name="weather_alert">تنبيه الطقس</string>
     <string name="close">اغلاق</string>
-    <string name="choose_your_favorite_location">اختر الموقع المفضل</string>
+    <string name="choose_your_favorite_location">اختر موقع التنبيه</string>
     <string name="weather_is_fine">لا توجد تحذيرات بشأن الطقس </string>
     <string name="warning">تحذير !!</string>
     <string name="warning_content_favorite">هل انت متأكد من رغبتك بمسح عنصرك المفضل ؟</string>
@@ -63,6 +63,25 @@
     سيؤدى هذاالى ايقاف التنبيه الخاص به</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
+    <string name="units_of_tempreture">وحدات درجة الحرارة</string>
+    <string name="apply">حفظ</string>
+    <string name="today">اليوم</string>
+    <string name="tomorrow">غدا</string>
+    <string name="now">    الان    </string>
+    <string name="avg">المتوسط :</string>
+    <string name="least">الصغرى :</string>
+    <string name="top">العظمى :</string>
+    <string name="search_by_city_name">ابحث عن طريق الاسم</string>
+    <string name="search">ابحث</string>
+    <string name="start">البداية :</string>
+    <string name="end">النهاية :</string>
+    <string name="country">الدولة :</string>
+    <string name="city">المدينة :</string>
+    <string name="detail">التفاصيل</string>
+    <string name="wind_speed_amp_cloundness">سرعة الرياح و الغيوم</string>
+    <string name="description">الوصف</string>
+
+
 
 
 </resources>

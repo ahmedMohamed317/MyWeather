@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsFragment">
+    tools:context=".ui.home.MapsFragment">
 
 
     <com.google.android.gms.maps.MapView
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         map:liteMode="false"
-        android:background="@drawable/main_background"
+        android:background="@drawable/map_background"
 
         android:apiKey="AIzaSyBoN47BmMSh0P7Kt-YB9o9m1nlFelHwnCw"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -22,18 +22,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
-        android:background="@drawable/main_background"
+        android:background="@drawable/map_background"
 
         android:clickable="true"
-        android:rotation="180"
+        android:rotation="0"
         android:src="@drawable/ic_baseline_save_alt_24"
         android:visibility="invisible"
-        map:backgroundTint="@color/lavender"
+        map:backgroundTint="@color/white"
         map:fabCustomSize="60dp"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
-        map:rippleColor="#3775A6"
+        map:rippleColor="@color/quantum_grey"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
-        android:background="@drawable/third_background"
+        android:background="@drawable/map_background"
         android:padding="18dp"
         android:text="@string/choose_your_alert_location"
         android:textColor="@color/black"

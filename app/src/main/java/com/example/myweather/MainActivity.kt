@@ -21,6 +21,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.myweather.ui.alert.AlertFragment
+import com.example.myweather.ui.favorite.FavoriteFragment
+import com.example.myweather.ui.home.HomeFragment
+import com.example.myweather.ui.home.MapsFragment
+import com.example.myweather.ui.search.SearchFragment
+import com.example.myweather.ui.settings.SettingsFragment
 import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
 
@@ -38,6 +44,8 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     var isFirstTimeGps :Boolean = true
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
+    private  val GPS_REQUEST_CODE = 1001
+
 
 
 
@@ -73,7 +81,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
             }
         }
-//        toggle.syncState()
+        toggle.syncState()
 //        if (savedInstanceState == null)
 //        {
 //            supportFragmentManager.beginTransaction().replace(R.id.fragment_container,HomeFragment()).commit()
@@ -147,25 +155,18 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
 
     }
-
     private fun getLastLocation() {
-        if (checkPermissions())
+        if (checkPermissions()) {
             if (isLocatedEnabled()) {
                 requestNewLocationData()
-
-
             } else {
-                Toast.makeText(this, "turn on your location ", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Turn on your location", Toast.LENGTH_LONG).show()
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                startActivity(intent)
-
+                startActivityForResult(intent, GPS_REQUEST_CODE)
             }
-        else {
-
+        } else {
             requestPermissions()
         }
-
-
     }
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -175,10 +176,8 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 20) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with getting the last location
                 getLastLocation()
             } else {
-                // Permission denied, show a message or handle it accordingly
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
             }
         }
@@ -195,10 +194,21 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,HomeFragment()).commit()
-            R.id.nav_settings -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,SettingsFragment()).commit()
-            R.id.nav_fav -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,FavoriteFragment()).commit()
-            R.id.nav_alarm -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,AlertFragment()).commit()
+            R.id.nav_home -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                HomeFragment()
+            ).commit()
+            R.id.nav_settings -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                SettingsFragment()
+            ).commit()
+            R.id.nav_fav -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                FavoriteFragment()
+            ).commit()
+            R.id.nav_alarm -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                AlertFragment()
+            ).commit()
+            R.id.nav_search -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                SearchFragment()
+            ).commit()
 
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -235,4 +245,15 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         val dialog = builder.create()
         dialog.show()
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == GPS_REQUEST_CODE) {
+            if (isLocatedEnabled()) {
+                requestNewLocationData()
+            } else {
+                Toast.makeText(this, "Location is still not enabled", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 }

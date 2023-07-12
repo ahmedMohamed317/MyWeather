@@ -39,12 +39,12 @@
         <string name="save">Enregistrer</string>
         <string name="notification">Notification</string>
         <string name="units_of_measurment">Unités de mesure</string>
-        <string name="standard">Standard</string>
-        <string name="metric">Métrique</string>
-        <string name="imperial">Impérial</string>
+        <string name="standard">Fahrenheit</string>
+        <string name="metric">Celsius</string>
+        <string name="imperial">Kelvin</string>
         <string name="animation_view">Vue animée</string>
-        <string name="animated">Animé</string>
-        <string name="non_animated">Non animé</string>
+        <string name="animated">Gps</string>
+        <string name="non_animated">Map</string>
         <string name="choose_your_location">Choisissez votre emplacement</string>
         <string name="lon">Longitude :</string>
         <string name="lat">Latitude :</string>
@@ -61,6 +61,25 @@
         <string name="warning_content_alert">Êtes-vous sûr de vouloir supprimer votre élément favori ?</string>
         <string name="yes">Oui</string>
         <string name="no">Nein</string>
+        <string name="units_of_tempreture">Unités de température</string>
+        <string name="apply">Apply</string>
+        <string name="today">Today</string>
+        <string name="tomorrow">Tomorrow</string>
+        <string name="now">    Now    </string>
+        <string name="avg">Avg :</string>
+        <string name="least">Least :</string>
+        <string name="top">Top :</string>
+        <string name="search_by_city_name">Search By City Name</string>
+        <string name="search">Search</string>
+        <string name="start">Start :</string>
+        <string name="end">End :</string>
+        <string name="country">Country :</string>
+        <string name="city">City :</string>
+        <string name="detail">Detail</string>
+        <string name="wind_speed_amp_cloundness"><![CDATA[Wind speed & Cloundness]]></string>
+        <string name="description">Description</string>
+
+
 
 
 </resources>

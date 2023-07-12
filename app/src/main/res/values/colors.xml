@@ -3,11 +3,20 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_700">#6AB9CACA</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lavender">#8692f7</color>
-    <color name="textColor">#000000</color>
+    <color name="lavender">#E2C4C4C4</color>
+    <color name="textColor">#ffffff</color>
+    <color name="colorBorder">#99ffffff</color>
+    <color name="colorCardBackground">#24ffffff</color>
+    <color name="card1">#ff4081</color>
+    <color name="card2">#7b1f82</color>
+    <color name="card3">#388ec3</color>
+    <color name="card4">#388e3c</color>
+    <color name="card5">#ff8c00</color>
+    <color name="card6">#69797e</color>
+    <color name="card7">#0099bc</color>
 
 
 </resources>

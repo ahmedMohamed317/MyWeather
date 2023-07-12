@@ -31,19 +31,20 @@
     <string name="arabic">Arabic</string>
     <string name="language">Language</string>
     <string name="english">English</string>
-    <string name="choose_your_alert_location">Choose your Alert Location</string>
+    <string name="choose_your_alert_location">Choose your Favorite Location</string>
     <string name="set_alert">Set Alert</string>
     <string name="from">From :</string>
     <string name="to">To :</string>
     <string name="save">Save</string>
     <string name="notification">Notification</string>
-    <string name="units_of_measurment">Units of measurment</string>
-    <string name="standard">Standard</string>
-    <string name="metric">Metric</string>
-    <string name="imperial">Imperial</string>
-    <string name="animation_view">Animation view</string>
-    <string name="animated">Animated</string>
-    <string name="non_animated">Non Animated</string>
+    <string name="units_of_measurment">Units of measurement</string>
+    <string name="units_of_tempreture">Units of temperature</string>
+    <string name="standard">Fahrenheit</string>
+    <string name="metric">Celsius</string>
+    <string name="imperial">Kelvin</string>
+    <string name="animation_view">Location choice</string>
+    <string name="animated">Gps</string>
+    <string name="non_animated">Map</string>
     <string name="choose_your_location">Choose your Location</string>
     <string name="lon">Lon :</string>
     <string name="lat">Lat :</string>
@@ -53,7 +54,7 @@
     <string name="hourly_weather">Hourly Weather :</string>
     <string name="weather_alert">Weather Alert</string>
     <string name="close">Close</string>
-    <string name="choose_your_favorite_location">Choose your Favorite Location</string>
+    <string name="choose_your_favorite_location">Choose your Alert Location</string>
     <string name="weather_is_fine">Weather is fine</string>
     <string name="warning">Warning!!</string>
     <string name="warning_content_favorite">Are you sure you want to delete your favourite item?</string>
@@ -61,10 +62,22 @@
     This will cause to disable your Alarm</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-
-
-
-
+    <string name="apply">Apply</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="now">     Now    </string>
+    <string name="avg">Avg :</string>
+    <string name="least">Least :</string>
+    <string name="top">Top :</string>
+    <string name="search_by_city_name">Search By City Name</string>
+    <string name="search">Search</string>
+    <string name="start">Start :</string>
+    <string name="end">End :</string>
+    <string name="country">Country :</string>
+    <string name="city">City :</string>
+    <string name="detail">Detail</string>
+    <string name="wind_speed_amp_cloundness"><![CDATA[Wind speed & Cloundness]]></string>
+    <string name="description">Description</string>
 
 
 </resources>
