@@ -1,4 +1,4 @@
-My Weather App:
+#My Weather App:
 
 This Android application displays weather information and temperature from your current location. You can also select a specific location on the map . The app allows you to add favorite locations and view weather details for those locations. Additionally, you can set alerts for various weather conditions such as rain, wind, temperature, fog, snow, and more.
 
@@ -57,5 +57,6 @@ The project utilizes the following dependencies:
 5- Lottie: For the splash screen animation.
 
 Unit Testing
+
 The project includes unit testing for the ViewModel and Repository components. Unit testing is an essential part of software development, as it helps ensure the correctness and reliability of the code.
 
