@@ -3,6 +3,7 @@ My Weather App:
 This Android application displays weather information and temperature from your current location. You can also select a specific location on the map . The app allows you to add favorite locations and view weather details for those locations. Additionally, you can set alerts for various weather conditions such as rain, wind, temperature, fog, snow, and more.
 
 Features
+
 1-Current temperature display
 
 2-Current date and time
@@ -24,6 +25,7 @@ Features
 10-Weather alerts with customizable alarm settings
 
 Screens
+
 The app consists of the following screens:
 
 1-Settings Screen: Allows users to choose location options and temperature units.
@@ -37,9 +39,11 @@ The app consists of the following screens:
 5-Search Screen: Lists  locations with the ability to view forecast details for each location by searching on them using their names .
 
 Architecture
+
 The project follows the MVVM (Model-View-ViewModel) design pattern, which separates the user interface (View) from the underlying data (Model) and introduces a ViewModel to handle the business logic and communication between the View and Model. This pattern promotes a clean architecture and facilitates easier testing and maintenance of the codebase.
 
 Dependencies
+
 The project utilizes the following dependencies:
 
 1- Glide - Image loading and caching library.
