@@ -1,4 +1,4 @@
-#My Weather App:
+My Weather App:
 
 This Android application displays weather information and temperature from your current location. You can also select a specific location on the map . The app allows you to add favorite locations and view weather details for those locations. Additionally, you can set alerts for various weather conditions such as rain, wind, temperature, fog, snow, and more.
 
